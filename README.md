@@ -1,3 +1,4 @@
+
 Steps And Commands To Follow After Clonning the Project
 
  => copy and paste .env.example to a new file name .env
@@ -10,3 +11,4 @@ Steps And Commands To Follow After Clonning the Project
  => create a database , name it as saved in "DB_DATABASE" variable available in .env file
  => php artisan migrate
  => php artisan db:seed
+
