@@ -13,7 +13,13 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
+// home page
 Route::get('/', [HomeController::class, 'create'])->name('home');
+
+// Fallback route
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404); // Load a 404 error view
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
