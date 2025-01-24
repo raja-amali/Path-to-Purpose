@@ -71,7 +71,6 @@
                                         </div>
 
                                         <!-- Links -->
-                                        <a class="small text-muted" href="{{ route('password.request') }}">Forgot password?</a>
                                         <p class="mb-5 pb-lg-2">
                                             Already registered?
                                             <a href="{{ route('login') }}" style="color: #393f81;">Sign in here</a>
