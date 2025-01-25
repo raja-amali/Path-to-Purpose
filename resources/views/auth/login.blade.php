@@ -10,7 +10,7 @@
                         <div class="row g-0">
                             <!-- Left Image Section -->
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                                <img src="{{ asset('storage/authentication/login.jpg') }}"
                                     alt="Login Form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
 

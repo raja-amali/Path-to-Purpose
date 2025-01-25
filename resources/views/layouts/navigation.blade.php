@@ -17,34 +17,38 @@
                 </li>
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0">
-                <!-- Cart Icon with Badge -->
-                <li class="nav-item">
-                    <a class="nav-link position-relative" href="{{ url('/cart') }}" aria-label="View Cart">
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">3</span>
-                    </a>
-                </li>
                 @guest
                     <!-- Login Button -->
                     <li class="nav-item">
-                        <a class="btn btn-outline-light me-2 rounded-pill px-4" href="{{Route::has('login') ? route('login'):''}}">Login</a>
+                        <a class="btn btn-outline-light me-2 rounded-pill px-4"
+                            href="{{ Route::has('login') ? route('login') : '' }}">Login</a>
                     </li>
                     <!-- Register Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="btn btn-light rounded-pill px-4 dropdown-toggle" href="#" id="registerDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="btn btn-light rounded-pill px-4 dropdown-toggle" href="#" id="registerDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Register
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark small-dropdown" aria-labelledby="registerDropdown">
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark small-dropdown"
+                            aria-labelledby="registerDropdown">
                             <li>
-                                <a class="dropdown-item text-center" href="{{Route::has('register') ? route('register') :''}}">As User</a>
+                                <a class="dropdown-item text-center"
+                                    href="{{ Route::has('user.register') ? route('user.register') : '' }}">As User</a>
                             </li>
                             <li>
-                                <a class="dropdown-item text-center" href="{{Route::has('vendor') ? route('vendor') :''}}">As Vendor</a>
+                                <a class="dropdown-item text-center"
+                                    href="{{ Route::has('vendor.register') ? route('vendor.register') : '' }}">As Vendor</a>
                             </li>
                         </ul>
                     </li>
                 @else
+                    <!-- Cart Icon with Badge -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="{{ url('/cart') }}" aria-label="View Cart">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <span class="badge bg-danger position-absolute top-0 start-100 translate-middle">3</span>
+                        </a>
+                    </li>
                     <!-- Profile Dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -52,7 +56,7 @@
                             <i class="bi bi-person-circle fs-5"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="route('profile.edit')">My Account</a></li>
+                            <li><a class="dropdown-item" href="{{route('profile.edit')}}">My Account</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
