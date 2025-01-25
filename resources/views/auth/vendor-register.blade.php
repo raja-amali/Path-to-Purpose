@@ -4,8 +4,8 @@
 @endsection
 
 @section('content')
-    <section class="vh-100" style="background-color: #9A616D;">
-        <div class="container py-5 h-100">
+    <section class="d-flex flex-column" style="background-color: #9A616D; min-height: 100vh;">
+        <div class="container py-5 flex-grow-1">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
@@ -67,10 +67,25 @@
                                         </div>
 
                                         <!-- Submit Button -->
-                                        <div class="pt-1 mb-4">
-                                            <x-primary-button class="btn btn-dark btn-lg btn-block">
+                                        <div class="pt-1 mb-3">
+                                            <x-primary-button
+                                                class="btn btn-dark btn-lg d-flex justify-content-center align-items-center shadow-lg rounded-3 w-100">
                                                 {{ __('Register as Vendor') }}
                                             </x-primary-button>
+                                        </div>
+
+                                        <!-- OR Divider -->
+                                        <div class="d-flex justify-content-center align-items-center mb-2">
+                                            <span class="text-muted" style="font-size: 16px;">OR</span>
+                                        </div>
+
+                                        <!-- Google Login Button -->
+                                        <div class="mb-3">
+                                            <a href=""
+                                                class="btn btn-danger btn-lg d-flex justify-content-center align-items-center shadow-lg rounded-3 w-100">
+                                                <i class="fab fa-google me-3" style="font-size: 20px;"></i>
+                                                <span>Register with Google</span>
+                                            </a>
                                         </div>
 
                                         <!-- Links -->
