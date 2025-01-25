@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\RegisteredVendorController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +23,20 @@ Route::fallback(function () {
 });
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
-    Route::post('register', [RegisteredUserController::class, 'store']);
 
+    // User routes
+    Route::prefix('user')->group(function () {
+        Route::get('register', [RegisteredUserController::class, 'create'])->name('user.register');
+        Route::post('register', [RegisteredUserController::class, 'store']);
+    });
+
+    // Vendor routes
+    Route::prefix('vendor')->group(function () {
+        Route::get('register', [RegisteredVendorController::class, 'create'])->name('vendor.register');
+        Route::post('register', [RegisteredVendorController::class, 'store']);
+    });
+
+    // Common authentication routes
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
