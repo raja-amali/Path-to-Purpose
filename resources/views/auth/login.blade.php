@@ -66,6 +66,13 @@
                                             <a href="{{ route::has('register-vendor') ? route('register-vendor') : '' }}" class="text-decoration-none text-primary hover-underline">Register as Vendor</a>
                                         </p>
                                     </form>
+
+                                      <!-- Login with Google -->
+                                    <div class="pb-lg-1 align-items-center mt-5 d-flex justify-content-center">
+                                        <a style="color: #393f81;" href="{{ route::has('loginWithGoogle') ? route('loginWithGoogle') : '' }}" class="text-decoration-none text-primary hover-underline">
+                                        <i class="fa fa-google fs-2"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
