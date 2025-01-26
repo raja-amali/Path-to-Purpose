@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Login')
 @section('content')
-
     <section class="d-flex flex-column" style="background-color: #9A616D; min-height: 100vh;">
         <div class="container py-5 flex-grow-1">
             <div class="row d-flex justify-content-center align-items-start">
@@ -17,6 +16,26 @@
                             <!-- Right Form Section -->
                             <div class="col-md-6 col-lg-7 d-flex align-items-start">
                                 <div class="card-body p-4 p-lg-5 text-black">
+                                    {{-- show error --}}
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger alert-dismissible fade show shadow-lg p-3 mb-5 rounded-3"
+                                            role="alert">
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-exclamation-circle-fill fs-2 me-3 text-danger"></i>
+                                                <div>
+                                                    <strong class="d-block fs-5">Oops! Something went wrong:</strong>
+                                                    <ul class="mb-0">
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close"></button>
+                                        </div>
+                                    @endif
+
                                     <form action="{{ route('login') }}" method="POST">
                                         @csrf
 
@@ -62,7 +81,7 @@
 
                                         <!-- Google Login Button -->
                                         <div class="mb-3">
-                                            <a href=""
+                                            <a href="{{ Route::has('google.login') ? route('google.login', ['action' => 'login']) : '#' }}"
                                                 class="btn btn-danger btn-lg d-flex justify-content-center align-items-center shadow-lg rounded-3 w-100">
                                                 <i class="fab fa-google me-3" style="font-size: 20px;"></i>
                                                 <span>Login with Google</span>
